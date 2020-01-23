@@ -2,11 +2,11 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 
 app.on('ready', () => {
 
-    console.log('Aplicação iniciada...');
+    console.log('Rodando...');
 
     let mainWindow = new BrowserWindow({
-        width: 600,
-        height: 400,
+        width: 800,
+        height: 600,
         webPreferences: { nodeIntegration: true }
     });
 

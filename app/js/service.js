@@ -1,14 +1,21 @@
-
-const carregaJar = () => {
-    // loginca de carregar o jar aqui
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('resolvido com sucesso!')
-        }, 3000);
-    })
-}
-
+const child = require('child_process');
 
 module.exports = {
-    carregaJar
+
+    carregaJar() {
+        // loginca de carregar o jar aqui
+        return new Promise((resolve, reject) => {
+
+            const retorno = child.exec('java -jar demo-biometria.jar "Jar is invoked by Node js"', function (err, res, stderr) {
+                if (err) {
+                    console.log(err)
+                    reject(err);
+                }
+                resolve(res);
+            })
+        });
+    },
+    salvarDados() {
+
+    }
 }
